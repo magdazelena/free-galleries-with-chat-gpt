@@ -23,8 +23,12 @@ app.post("/chat", async (req, res) => {
   const completion = await openai.createCompletion({
     model: "text-davinci-003",
     prompt: prompt,
+    max_tokens: 2000,
   });
-  res.send(completion.data.choices);
+  res.send({
+    text: completion.data.choices[0].text,
+    usage: completion.data.usage,
+  });
 });
 
 // Start the server
