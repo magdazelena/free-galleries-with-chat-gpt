@@ -1,13 +1,22 @@
 export function List({ text }) {
   const wrapUrls = (string) => {
     const urlRgx =
-      /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/gim;
+      /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\\/%=~_|$])/gim;
     const link = string.match(urlRgx);
     return (
       <span>
-        {string.replace(urlRgx, "")}
+        {wrapTitles(string.replace(urlRgx, ""))}
         <a href={link}>{link}</a>
       </span>
+    );
+  };
+  const wrapTitles = (string) => {
+    const titleRgx = /(\w+.)+(?=\s-|–\s)/g;
+    return (
+      <>
+        <h2>{string.match(titleRgx)}</h2>
+        <p>{string.replace(titleRgx, "")}</p>
+      </>
     );
   };
   const parseText = (input) => {
@@ -15,11 +24,13 @@ export function List({ text }) {
     const array = input.split(/([0-9])\.+\s+/g);
 
     return (
-      <ol>
+      <ol className="list">
         {array
           .filter((_, i) => i !== 0 && i % 2 === 0)
           .map((item, i) => (
-            <li key={i}>{wrapUrls(item)}</li>
+            <li className="list-item" key={i}>
+              {wrapUrls(item)}
+            </li>
           ))}
       </ol>
     );

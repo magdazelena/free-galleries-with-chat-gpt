@@ -4,6 +4,7 @@ import axios from "axios";
 import { getStorageValue, setStorageValue } from "../utils/localStorage";
 import { checkIfDateIsOlderThan30days } from "../utils/date";
 import { List } from "./List";
+import "./style.css";
 export function Content() {
   const [city, setCity] = useState("Copenhagen");
   const [response, setResponse] = useState("");
@@ -37,7 +38,7 @@ export function Content() {
   };
 
   return (
-    <div>
+    <div className="content">
       <input
         type="text"
         value={city}

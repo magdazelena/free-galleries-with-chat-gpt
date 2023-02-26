@@ -1,0 +1,48 @@
+.content {
+  background-color: #8e7c93;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 4em;
+  color: #f6c0d0;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.list-item {
+  width: 20em;
+  margin: 1em;
+  padding: 2em 3em;
+  background-color: #d0a5c0;
+  color: #1e3231;
+  font-size: 1.2em;
+}
+.list-item span {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+input {
+  padding: 2em;
+  font-size: 2em;
+}
+a,
+button {
+  display: block;
+  padding: 1em;
+  background-color: #485665;
+  color: #f6c0d0;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 1em;
+}
+a:hover,
+button:hover {
+  background-color: #1e3231;
+}
