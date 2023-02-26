@@ -1,6 +1,6 @@
 .content {
   background-color: #8e7c93;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 4em;

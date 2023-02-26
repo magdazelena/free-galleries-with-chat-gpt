@@ -11,7 +11,7 @@ export function List({ text }) {
     );
   };
   const wrapTitles = (string) => {
-    const titleRgx = /(\w+.)+(?=\s-|–\s)/g;
+    const titleRgx = /(\w+.)+(?=\s(-|–)|(:)\s)/g;
     return (
       <>
         <h2>{string.match(titleRgx)}</h2>
