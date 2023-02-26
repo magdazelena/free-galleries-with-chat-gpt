@@ -47,7 +47,7 @@ export function Content() {
   };
   const parseResponse = (text) => {
     if (!text) return <></>;
-    const array = text.split(/([0-9])\.+/g);
+    const array = text.split(/([0-9])\.+\s+/g);
 
     return (
       <ol>
